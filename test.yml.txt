@@ -1,8 +1,0 @@
----
-- hosts: localhost
-  gather_facts: no
-
-  tasks:
-  - name: pass the ansible varibale to playbook
-    debug: 
-      msg: "Hi This Is  {{ survey_var }}"

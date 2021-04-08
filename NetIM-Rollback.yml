@@ -1,0 +1,17 @@
+---
+- name: NetIM Rollback Playbook
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: NetIM Rollback Request (to Ansible REST API)
+    debug: 
+      msg: "NetIM Requested a Rollback, will retrieve the previous config file for {{ survey_var }}"
+
+  - name: Retrieve Rollback Config File from NetIM (to NetIM REST API)
+    debug:
+      msg: "Retrieved previous config file from NetIM for {{ survey_var}}"
+
+  - name: Push Previous Config File (SSH to router)
+    debug:
+      msg: "{{ survey_var}} roll-back was successful!"

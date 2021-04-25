@@ -3,7 +3,12 @@
   hosts: localhost
   gather_facts: no
 
+
+  
   tasks:
+  - set_fact:
+    md5_value: "{{ lookup('url','https://10.1.150.232/'+platformBuildMd5Url,validate_certs=False) }}"
+
   - name: NetIM Rollback Request (to Ansible REST API)
     debug: 
       msg: "NetIM Requested a Rollback for {{ dev_name }}, will retrieve the previous config file from this NetIM path {{ deviced_archive_file_path }}"
@@ -23,8 +28,8 @@
       validate_certs: no
       #status_code: 200
 
-      # This output is an arbitrary name
-      register: rest_get
+    # This output is an arbitrary name
+    register: rest_get
 
   - name: Debug
     debug:

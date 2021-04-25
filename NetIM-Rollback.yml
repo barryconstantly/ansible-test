@@ -6,10 +6,6 @@
 
   
   tasks:
-  - name: Test SSL cert
-    set_fact:
-      md5_value: "{{ lookup('url','https://10.1.150.232/'+platformBuildMd5Url,validate_certs=False) }}"
-
   - name: NetIM Rollback Request (to Ansible REST API)
     debug: 
       msg: "NetIM Requested a Rollback for {{ dev_name }}, will retrieve the previous config file from this NetIM path {{ deviced_archive_file_path }}"
@@ -22,9 +18,8 @@
     uri:
       url: "https://10.1.150.232:8543/api/netim/v1/devices?limit=1000&offset=0"
       method: GET
-      return_content: yes
-      user: scadmin
-      password: R3st0nVA
+      url_username: scadmin
+      url_password: R3st0nVA
       force_basic_auth: yes
       validate_certs: no
       #status_code: 200

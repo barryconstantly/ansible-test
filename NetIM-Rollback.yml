@@ -23,6 +23,8 @@
       url_password: R3st0nVA
       force_basic_auth: yes
       validate_certs: no
+      # This forces content to be returned, if not specified and JSON is present, then JSON will be returned
+      return_content: yes
       status_code: 200
 
     # This output is an arbitrary name

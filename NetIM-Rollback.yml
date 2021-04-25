@@ -34,11 +34,11 @@
       status_code: 200
 
     # Ansible uses register to specify a variable name and it is implicit to the output of the uri:
-      register: rest_get
+    register: rest_get
 
-  - name: Debug
+#  - name: Debug
     debug:
-        msg: "{{ rest_get }}"
+      msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:

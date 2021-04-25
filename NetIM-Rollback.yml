@@ -33,11 +33,11 @@
       return_content: yes
       status_code: 200
 
-    # Ansible variable, registers the output of uri to the variable name rest_get: 
-    register: rest_get
+      # Ansible variable, registers the output of uri to the variable name rest_get: 
+      register: rest_get
 
-    # debug: prints to Ansible command line screen
-    debug:
+      # debug: prints to Ansible command line screen
+      debug:
         msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)

@@ -3,8 +3,10 @@
   hosts: localhost
   gather_facts: no
 
+# Variables passed via JSON from Flask
+# dev_name
+# deviced_archive_file_path
 
-  
   tasks:
   - name: NetIM Rollback Request (to Ansible REST API)
     debug: 
@@ -16,8 +18,8 @@
       
   - name: Access NetIM REST API to retrieve config file
     uri:
-      #url: "https://10.1.150.232:8543/api/netim/v1/devices?limit=1000&offset=0"
-      url: "https://10.1.150.232:8543/api/netim/v1/archives/281533/file"
+      # deviced_archive_file_path looks like this '/api/netim/v1/archives/281533/file'
+      url: "https://10.1.150.232:8543 {{deviced_archive_file_path}} "
       method: GET
       url_username: scadmin
       url_password: R3st0nVA

@@ -37,8 +37,8 @@
     register: rest_get
 
 #  - name: Debug
-    debug:
-      msg: "{{ rest_get }}"
+      debug:
+        msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:

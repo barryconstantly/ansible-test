@@ -21,9 +21,9 @@
       # This output is an arbitrary name
       register: rest_get
 
-    - name: Debug
-      debug:
-          msg: "{{ rest_get }}"
+  - name: Debug
+    debug:
+        msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:

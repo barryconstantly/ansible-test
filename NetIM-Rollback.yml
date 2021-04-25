@@ -6,8 +6,9 @@
 
   
   tasks:
-  - set_fact:
-    md5_value: "{{ lookup('url','https://10.1.150.232/'+platformBuildMd5Url,validate_certs=False) }}"
+  - name: Test SSL cert
+    set_fact:
+      md5_value: "{{ lookup('url','https://10.1.150.232/'+platformBuildMd5Url,validate_certs=False) }}"
 
   - name: NetIM Rollback Request (to Ansible REST API)
     debug: 

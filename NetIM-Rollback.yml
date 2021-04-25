@@ -11,6 +11,19 @@
   - name: Retrieve Rollback Config File from NetIM (to NetIM REST API)
     debug:
       msg: "Retrieved previous config file from NetIM for {{ dev_name }}"
+      
+  - name: Access NetIM REST API to retrieve config file
+    uri:
+      url: "https://10.1.150.232:8543/api/netim/v1/devices?limit=1000&offset=0"
+      method: GET
+      status_code: 200
+
+      # This output is an arbitrary name
+      register: rest_get
+
+    - name: Debug
+      debug:
+          msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:

@@ -19,8 +19,8 @@
       return_content: yes
       #status_code: 200
 
-      # This output is an arbitrary name
-      register: rest_get
+    # This output is an arbitrary name
+    register: rest_get
 
   - name: Debug
     debug:

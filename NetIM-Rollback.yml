@@ -37,11 +37,11 @@
     register: rest_get
   
   # In this case, debug is NOT a named task (so the output will only show the debug output and not a separate task..
-#  - debug: 
-#      msg: "{{ rest_get }}"  
-  - name: Debug
-    debug:
-      msg: "{{ rest_get }}"
+  - debug: 
+      msg: "{{ rest_get }}"  
+#  - name: Debug
+#    debug:
+#      msg: "{{ rest_get }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:

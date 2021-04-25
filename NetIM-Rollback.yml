@@ -32,10 +32,13 @@
       # This forces content to be returned, if not specified and JSON is present, then JSON will be returned
       return_content: yes
       status_code: 200
-
     # Ansible uses register to specify a variable name and it is implicit to the output of the uri:
+    # Notice it is NOT indented, at same indent level as uri:
     register: rest_get
-
+  
+  # In this case, debug is NOT a named task (so the output will only show the debug output and not a separate task..
+#  - debug: 
+#      msg: "{{ rest_get }}"  
   - name: Debug
     debug:
       msg: "{{ rest_get }}"

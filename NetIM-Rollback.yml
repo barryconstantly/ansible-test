@@ -16,7 +16,8 @@
     uri:
       url: "https://10.1.150.232:8543/api/netim/v1/devices?limit=1000&offset=0"
       method: GET
-      status_code: 200
+      return_content: yes
+      #status_code: 200
 
       # This output is an arbitrary name
       register: rest_get

@@ -20,10 +20,11 @@
       user: scadmin
       password: R3st0nVA
       force_basic_auth: yes
+      validate_certs: no
       #status_code: 200
 
-    # This output is an arbitrary name
-    register: rest_get
+      # This output is an arbitrary name
+      register: rest_get
 
   - name: Debug
     debug:

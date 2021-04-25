@@ -6,12 +6,12 @@
   tasks:
   - name: NetIM Rollback Request (to Ansible REST API)
     debug: 
-      msg: "NetIM Requested a Rollback, will retrieve the previous config file for {{ deviced_archive_file_path }}"
+      msg: "NetIM Requested a Rollback for {{ dev_name }}, will retrieve the previous config file from this NetIM path {{ deviced_archive_file_path }}"
 
   - name: Retrieve Rollback Config File from NetIM (to NetIM REST API)
     debug:
-      msg: "Retrieved previous config file from NetIM for {{ deviced_archive_file_path }}"
+      msg: "Retrieved previous config file from NetIM for {{ dev_name }}"
 
   - name: Push Previous Config File (SSH to router)
     debug:
-      msg: "{{ deviced_archive_file_path }} roll-back was successful!"
+      msg: "{{ dev_name }} roll-back was successful!"

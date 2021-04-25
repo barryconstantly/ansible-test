@@ -9,12 +9,14 @@
 
   tasks:
   - name: NetIM Rollback Request (to Ansible REST API)
+    # debug: prints to Ansible command line screen
     debug:
       msg: 
         - "NetIM Requested a Rollback for {{ dev_name }}, will retrieve the previous config file"
         - "from this NetIM path {{ deviced_archive_file_path }}"
 
   - name: Retrieve Rollback Config File from NetIM (to NetIM REST API)
+    # debug: prints to Ansible command line screen
     debug:
       msg: "Retrieved previous config file from NetIM for {{ dev_name }}"
       
@@ -31,10 +33,10 @@
       return_content: yes
       status_code: 200
 
-    # This output is an arbitrary name
+    # Ansible variable, registers the output of uri to the variable name rest_get: 
     register: rest_get
 
-  - name: Debug
+    # debug: prints to Ansible command line screen
     debug:
         msg: "{{ rest_get }}"
 

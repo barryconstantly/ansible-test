@@ -32,15 +32,20 @@
       # This forces content to be returned, if not specified and JSON is present, then JSON will be returned
       return_content: yes
       status_code: 200
-      dest: /tmp
+      # This writes the output to a file named 'config.txt'
+      # Since this AWX and Docker, the actual location is in a Docker folder somewhere..
+      dest: ./config.txt
     # Ansible uses register to specify a variable name and it is implicit to the output of the uri:
     # Notice it is NOT indented, at same indent level as uri:
     register: rest_get
+    
+  # This is debug test to see the config file text on the Ansible console screen
+  - debug: msg="The output of the config file is {{lookup('file', './config.txt') }}"
   
   # In this case, debug is NOT a custom named task, it will show up as task "debug"
   # So this is terser way to output, and just put other desired text in msg:
-  - debug: 
-      msg: "{{ rest_get }}"  
+#  - debug: 
+#      msg: "{{ rest_get }}"  
 #  - name: Debug
 #    debug:
 #      msg: "{{ rest_get }}"

@@ -1,6 +1,6 @@
 ---
 - name: NetIM Rollback Playbook
-  hosts: localhost
+  hosts: dev_name
   gather_facts: no
 
 # Variables passed via JSON from Flask
@@ -50,6 +50,11 @@
 #    debug:
 #      msg: "{{ rest_get }}"
 
-  - name: Push Previous Config File (SSH to router)
-    debug:
-      msg: "{{ dev_name }} roll-back was successful!"
+  # - name: Push Previous Config File (SSH to router)
+    # ios_config:
+      # replace: config
+      # src: './config.txt'
+    # debug:
+      # msg: "{{ dev_name }} roll-back was successful!"
+      
+

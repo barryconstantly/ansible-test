@@ -1,0 +1,4 @@
+- import_playbook: NetIM-Retrieve-Rollback-Config.yml
+  when: "'NetIM' in inventory_hostname"
+- import_playbook: Cisco-Restore-Config.yml
+  when: "'MidA-Pod1-Switch01.sdwanlab.local' in inventory_hostname"

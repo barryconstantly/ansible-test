@@ -1,0 +1,14 @@
+---
+- name: Cisco Restore Config example
+  hosts: MidA-Pod1-Switch01.sdwanlab.local
+  gather_facts: false
+  connection: network_cli
+  
+  tasks:
+    - action: ping
+
+# This is elevated enable mode, note that the other script with 'show run' works which also uses
+# elevated mode..
+    - name: IOS configuration source example
+      ios_config:
+        src: "./config.txt"

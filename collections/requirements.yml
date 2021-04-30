@@ -1,4 +1,4 @@
 ---
 collections:
 # With just the collection name
-- cisco.ios.ios_config
+- cisco.ios

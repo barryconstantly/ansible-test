@@ -1,6 +1,6 @@
 ---
 - name: NetIM Rollback Playbook
-  hosts: NetIM
+  hosts: localhost
   gather_facts: no
 
 # Variables passed via JSON from Flask
@@ -8,7 +8,6 @@
 # deviced_archive_file_path
 
   tasks:
-  - action: ping
   - name: NetIM Rollback Request (to Ansible REST API)
     # debug: prints to Ansible command line screen
     debug:

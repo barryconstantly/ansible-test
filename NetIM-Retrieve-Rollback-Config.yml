@@ -47,4 +47,3 @@
   # I got frustrated trying to read in the file and parse with Ansible so cheating with Python..
   - name: Remove some lines from the config file (header and footer)
     script: "/usr/bin/python config_strip.py"
-

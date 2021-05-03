@@ -36,14 +36,14 @@
       status_code: 200
       # This writes the output to a file named 'config.txt'
       # Since this AWX and Docker, the actual location is in a Docker folder somewhere..
-      dest: ./config.txt
+      dest: /tmp/config.txt
     # Ansible uses register to specify a variable name and it is implicit to the output of the uri:
     # Notice it is NOT indented, at same indent level as uri:
     register: rest_get
     
   # This is debug test to see the config file text on the Ansible console screen
   - debug: 
-      msg: "The output of the config file is {{lookup('file', './config.txt') }}"
+      msg: "The output of the config file is {{lookup('file', '/tmp/config.txt') }}"
   
 
   # I got frustrated trying to read in the file and parse with Ansible so cheating with Python..

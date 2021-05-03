@@ -1,6 +1,6 @@
 ---
 - name: NetIM Rollback Playbook
-  hosts: localhost
+  hosts: NetIM
   gather_facts: no
 
 # Variables passed via JSON from Flask

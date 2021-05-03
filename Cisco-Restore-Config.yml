@@ -1,10 +1,10 @@
 ---
 - name: Cisco Restore Config example
-  hosts: all
+  hosts: MidA-Pod1-Switch01.sdwanlab.local
   gather_facts: false
   connection: network_cli
-  collections:
-    - cisco.ios
+#  collections:
+#    - cisco.ios
   
   tasks:
     - action: ping

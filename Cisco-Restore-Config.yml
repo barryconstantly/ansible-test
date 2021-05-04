@@ -3,13 +3,13 @@
   hosts: 10.1.151.10
   gather_facts: false
   connection: network_cli
-  user: "admin",
-  ssh_pass: "riverbed",
-  become: "yes",
-  ansible_become_method: "enable",
-  ansible_become_pass: "riverbed",
-  network_os: "ios",
-  connection: "network_cli",  
+  user: "admin"
+  ssh_pass: "riverbed"
+  become: "yes"
+  become_method: "enable"
+  become_pass: "riverbed"
+  network_os: "ios"
+  connection: "network_cli"
 
   tasks:
     - action: ping

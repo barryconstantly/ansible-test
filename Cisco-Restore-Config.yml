@@ -2,7 +2,14 @@
 - name: Cisco Restore Config example
   hosts: 10.1.151.10
   gather_facts: false
-#  connection: network_cli
+  connection: network_cli
+  user: "admin",
+  ssh_pass: "riverbed",
+#  become: "yes",
+#  "ansible_become_method": "enable",
+#  "ansible_become_pass": "riverbed",
+  ansible_network_os: "ios",
+  ansible_connection: "network_cli",  
 
   tasks:
     - action: ping

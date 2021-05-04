@@ -3,8 +3,6 @@
   hosts: 10.1.151.10
   gather_facts: false
   connection: network_cli
-  user: "admin"
-  pass: "riverbed"
   become: "yes"
   become_method: "enable"
   become_pass: "riverbed"

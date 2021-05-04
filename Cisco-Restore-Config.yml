@@ -1,6 +1,6 @@
 ---
 - name: Cisco Restore Config example
-  hosts: MidA-Pod1-Switch01.sdwanlab.local
+  hosts: 10.1.151.10
   gather_facts: false
 #  connection: network_cli
 

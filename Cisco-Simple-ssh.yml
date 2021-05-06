@@ -2,7 +2,7 @@
 - name: Cisco Restore Config example
   hosts: 10.1.151.10
   gather_facts: false
-#  connection: network_cli
+  connection: network_cli
 
   tasks:
 # This is elevated enable mode, note that the other script with 'show run' works which also uses

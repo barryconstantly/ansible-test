@@ -1,7 +1,7 @@
 ---
 - name: Cisco Restore Config example
   hosts: 10.1.151.10
-  gather_facts: false
+  gather_facts: true
   connection: network_cli
 
   tasks:

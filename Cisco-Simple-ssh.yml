@@ -5,8 +5,6 @@
 #  connection: network_cli
 
   tasks:
-    - action: ping
-
 # This is elevated enable mode, note that the other script with 'show run' works which also uses
 # elevated mode..
     - name: run multiple commands on remote nodes

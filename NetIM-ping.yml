@@ -1,0 +1,9 @@
+---
+- name: NetIM ping
+  hosts: NetIM
+  gather_facts: false
+#  connection: network_cli
+
+  tasks:
+    - name: Test Ansible ping to NetIM
+      ping:

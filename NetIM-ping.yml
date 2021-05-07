@@ -1,6 +1,6 @@
 ---
 - name: NetIM ping
-  hosts: NetIM
+  hosts: 10.1.150.232
   gather_facts: false
 #  connection: network_cli
 

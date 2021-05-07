@@ -13,3 +13,6 @@
         commands:
           - show version
           - show ip int brief
+      register: print_output
+
+    - debug: var=print_output.stdout_lines

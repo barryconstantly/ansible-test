@@ -1,5 +1,6 @@
 ---
-- name: Cisco Restore Config example
+- name: Cisco Show Example
+
   hosts: 10.1.151.10
   gather_facts: false
   connection: network_cli
@@ -7,7 +8,7 @@
   tasks:
 # This is elevated enable mode, note that the other script with 'show run' works which also uses
 # elevated mode..
-    - name: run multiple commands on remote nodes
+    - name: Run multiple show commands on remote nodes
       ios_command:
         commands:
           - show version

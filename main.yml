@@ -64,5 +64,4 @@
     when: "'Cisco' in group_names"
     ios_config:
       src: "./config.txt"
-      after: version 12.2
 

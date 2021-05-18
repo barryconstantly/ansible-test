@@ -5,7 +5,7 @@
   tasks:
 
   - name: Install Config and save diff
-    ansible.netcommon.napalm.napalm_install_config:
+    napalm_install_config:
       hostname: '{{ inventory_hostname }}'
       username: admin
       password: riverbed

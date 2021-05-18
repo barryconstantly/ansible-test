@@ -3,3 +3,4 @@ collections:
 # With just the collection name
 - cisco.ios
 - ansible.netcommon.napalm
+

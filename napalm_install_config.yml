@@ -3,7 +3,6 @@
   hosts: 10.1.151.10
   
   tasks:
-
   - name: Install Config and save diff
     napalm_install_config:
       hostname: '{{ inventory_hostname }}'

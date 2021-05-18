@@ -1,1 +1,4 @@
-
+---
+collections:
+# With just the collection name
+- napalm.napalm

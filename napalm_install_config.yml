@@ -1,6 +1,6 @@
 ---
 - name: NAPALM gather information on IOS
-  hosts: MidA-Pod1-Switch01.sdwanlab.local
+  hosts: 10.1.151.10
   
   tasks:
 

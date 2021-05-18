@@ -1,0 +1,23 @@
+---
+- name: NAPALM gather information on IOS
+  hosts: MidA-Pod1-Switch01.sdwanlab.local
+  
+  tasks:
+
+  - name: Install Config and save diff
+    napalm_install_config:
+      hostname: '{{ inventory_hostname }}'
+      username: admin
+      password: riverbed
+      optional_args: {'secret': 'riverbed', 'inline_transfer': 'True'}
+      dev_os: ios
+      config_file: 'ansible_running_config_1.txt'
+      #config_file: 'netim_running_config_2.txt'
+      #config_file: 'netim_running_config_2_with_motd.txt'
+      #config_file: 'banner_test.txt'
+      replace_config: True
+      commit_changes: True
+      archive_file: True
+      get_diffs: True
+      diff_file: 'diff.txt'
+    

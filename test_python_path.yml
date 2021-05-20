@@ -1,0 +1,17 @@
+---
+- name: NetIM Rollback Playbook
+  hosts: NetIM
+  gather_facts: no
+
+# Variables passed via JSON from Flask
+# dev_name
+# deviced_archive_file_path
+
+  tasks:
+  - name: Remove some lines from the config file (header and footer)
+    script: "/usr/bin/python test_path.py"
+    register: script_output
+  - debug: 
+      msg: "The output of the python file is {{ script_output }}"
+  
+

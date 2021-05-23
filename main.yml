@@ -54,7 +54,7 @@
     when: "'NetIMGroup' in group_names"
     script: "/usr/bin/python3 config_strip.py"
   - debug:
-      msg: "The scrubbed output of the config file is {{lookup('file', './config.txt') }}"
+      msg: "The scrubbed output of the config file is {{lookup('file', './config_scrubbed.txt') }}"
 
 ########  Only for Cisco host ##########
 # This is elevated enable mode, note that the other script with 'show run' works which also uses
@@ -67,7 +67,7 @@
       password: riverbed
       optional_args: {'secret': 'riverbed', 'inline_transfer': 'True'}
       dev_os: ios
-      config_file: 'config.txt'
+      config_file: 'config_scrubbed.txt'
       replace_config: True
       commit_changes: True
       archive_file: True

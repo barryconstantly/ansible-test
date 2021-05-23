@@ -53,7 +53,7 @@
   - name: Remove some lines from the config file (header and footer)
     when: "'NetIMGroup' in group_names"
     script: "/usr/bin/python3 config_strip.py"
-    debug:
+  - debug:
       msg: "The scrubbed output of the config file is {{lookup('file', './config.txt') }}"
 
 ########  Only for Cisco host ##########

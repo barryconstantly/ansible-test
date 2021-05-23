@@ -6,6 +6,7 @@ config_file.close
 config_file = open('config.txt', 'w')
 for i in range(3,len(config_list)):
 	config_line = config_list[i].rstrip()
+	config_line = config_line.replace('\r','')
 	if 'no aaa new-model' in config_line or 'login' in config_line:
 		pass
 	else:

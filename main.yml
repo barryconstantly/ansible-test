@@ -52,7 +52,7 @@
   # I got frustrated trying to read in the file and parse with Ansible so cheating with Python..
   - name: Remove some lines from the config file (header and footer)
     when: "'NetIMGroup' in group_names"
-    script: "/usr/bin/python config_strip.py"
+    script: "/usr/bin/python3 config_strip.py"
 
 ########  Only for Cisco host ##########
 # This is elevated enable mode, note that the other script with 'show run' works which also uses

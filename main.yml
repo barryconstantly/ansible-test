@@ -59,7 +59,7 @@
 # elevated mode..
   - name: Install Config and save diff
     when "'Cisco' in group_names"
-    napalm_install_config:
+    napalm.napalm_install_config:
       hostname: '{{ inventory_hostname }}'
       username: admin
       password: riverbed

@@ -54,6 +54,7 @@
     when: "'NetIMGroup' in group_names"
     script: "/usr/bin/python3 config_strip.py"
   - debug:
+    when: "'NetIMGroup' in group_names"
       msg: "The scrubbed output of the config file is {{lookup('file', './config.txt') }}"
 
 ########  Only for Cisco host ##########

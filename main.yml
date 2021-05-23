@@ -58,8 +58,8 @@
 # This is elevated enable mode, note that the other script with 'show run' works which also uses
 # elevated mode..
   - name: Install Config and save diff
-    when "'Cisco' in group_names"
-    napalm.napalm_install_config:
+    when: "'Cisco' in group_names"
+    napalm_install_config:
       hostname: '{{ inventory_hostname }}'
       username: admin
       password: riverbed

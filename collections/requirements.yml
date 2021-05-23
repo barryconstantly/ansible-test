@@ -1,5 +1,5 @@
 ---
 collections:
 # With just the collection name
-#- cisco.ios
+- cisco.ios
 - napalm.napalm

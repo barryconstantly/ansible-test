@@ -5,10 +5,10 @@ config_file.close
 # Now open again and overwrite
 config_file = open('config.txt', 'w')
 for i in range(3,len(config_list)):
-	config_line = config_list[i]
+	config_line = config_list[i].rstrip()
 	if 'no aaa new-model' in config_line or 'login' in config_line:
 		pass
 	else:
-		config_file.write(config_line)
+		config_file.write(config_line + '\n')
 config_file.close()
 

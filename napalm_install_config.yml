@@ -1,0 +1,28 @@
+---
+- name: NAPALM gather information on IOS
+  hosts: 10.1.151.10
+  
+  tasks:
+  - name: Install Config and save diff
+    napalm_install_config:
+      hostname: '{{ inventory_hostname }}'
+      username: admin
+      password: riverbed
+#      optional_args: {'secret': 'riverbed', 'inline_transfer': 'True'}
+      optional_args: {'secret': 'riverbed', 'inline_transfer': 'True', 'global_delay_factor': 2}
+      dev_os: ios
+      config_file: 'ansible_running_config_1.txt'
+      #config_file: 'netim_running_config_2.txt'
+      #config_file: 'netim_running_config_2_with_motd.txt'
+      #config_file: 'banner_test.txt'
+      replace_config: True
+      commit_changes: True
+      archive_file: True
+      get_diffs: True
+      diff_file: 'diff.txt'
+      
+  - name: Config file debug output
+    debug:
+      msg: "The output of the config file is {{lookup('file', './ansible_running_config_1.txt') }}"
+
+    

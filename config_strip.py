@@ -1,9 +1,9 @@
-config_file = open('netim_config_orig.txt')
+config_file = open('config_orig.txt')
 config_list = config_file.readlines()
 config_file.close
 
 # Now open again and overwrite
-config_file = open('netim_config_scrubbed.txt', 'w')
+config_file = open('config_scrubbed.txt', 'w')
 for i in range(4,len(config_list)-2):
   config_line = config_list[i].rstrip()
   config_line = config_line.replace('\r','')

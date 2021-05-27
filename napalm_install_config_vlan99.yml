@@ -1,0 +1,32 @@
+---
+- name: NAPALM replace a config file
+  hosts: 10.1.153.10
+  vars:
+    config_install_file: "config_vlan_99_no_user_w_http_w_monitor.txt"
+  tasks:
+  - debug:
+      msg: "The config file name is {{ config_install_file }}"
+
+  - name: Install Config and save diff
+    napalm_install_config:
+      hostname: '{{ inventory_hostname }}'
+      username: admin
+      password: riverbed
+      optional_args: {'secret': 'riverbed', 'inline_transfer': True, 'global_delay_factor': 2}
+      dev_os: ios
+      config_file: '{{ config_install_file }}'
+      replace_config: 'True'
+      commit_changes: 'True'
+      archive_file: 'True'
+      get_diffs: 'True'
+      diff_file: 'diff.txt'
+      
+  - name: IOS configuration source example
+    ios_config:
+      backup: yes
+      backup_options:
+        filename: Mid-backup.txt
+    register: backup_contents
+    
+  - debug:
+      msg: "The contents of the config file are {{ lookup('file','backup/Mid-backup.txt') }} "

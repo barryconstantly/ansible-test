@@ -1,0 +1,258 @@
+!
+! Last configuration change at 11:04:03 EST Tue May 25 2021 by admin
+! NVRAM config last updated at 11:04:04 EST Tue May 25 2021 by admin
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname MidA-Pod3-Switch01
+!
+boot-start-marker
+boot-end-marker
+!
+enable password riverbed
+!
+username admin password 0 riverbed
+!
+no aaa new-model
+clock timezone EST -5 0
+system mtu routing 1500
+vtp mode transparent
+!
+!
+ip domain-name sdwanlab.local
+!
+!
+crypto pki trustpoint TP-self-signed-3486895744
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3486895744
+ revocation-check none
+ rsakeypair TP-self-signed-3486895744
+!
+!
+crypto pki certificate chain TP-self-signed-3486895744
+ certificate self-signed 01
+  3082025A 308201C3 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343836 38393537 3434301E 170D3933 30333031 30303032 
+  31375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34383638 
+  39353734 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100CDD5 7AE5A051 75AA4A08 6521AE82 A0C01212 C4B56E18 F9DB0AAD C70BCC2B 
+  BCA4F43E A44A549F 75AE6EFC 1EBFBD2D 771E8B02 07D4501F 0F51EC2E 6D0B3536 
+  412B3EF8 31EE95A7 641E1D44 2BE2E8AE 86D9F833 0771E2A5 4A608447 228C9CBF 
+  E4804783 25212BCD CBEE89AB D46584C2 DB528A91 29D47F9A 67852E76 035425FF 
+  E5730203 010001A3 8181307F 300F0603 551D1301 01FF0405 30030101 FF302C06 
+  03551D11 04253023 82214D69 64412D50 6F64332D 53776974 63683031 2E736477 
+  616E6C61 622E6C6F 63616C30 1F060355 1D230418 30168014 43039F0C AC967FCD 
+  0C61AD43 99AEE162 B1212B9D 301D0603 551D0E04 16041443 039F0CAC 967FCD0C 
+  61AD4399 AEE162B1 212B9D30 0D06092A 864886F7 0D010104 05000381 810095D8 
+  65714AE9 484FAD46 88F5AB3F 8847C491 60A1FE64 737F9A2D 74F2B5C3 FB902E0E 
+  E9EA7B10 16A375C1 E06B689C 34308B17 ADA72731 C99AC6DF 98712F4F 4BD93737 
+  D91D6AAA 8E0BDC8A 039E01CA FF18D4E2 82B92756 50147AC8 26019CC5 6EA86337 
+  F5EF7B69 C551408E A2A82231 D39CE84E D8D2AB19 C97B01E6 A9FFBC48 D20E
+  	quit
+!
+!
+!
+archive
+ path flash:archive
+ write-memory
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 10
+ name Nuno-DC-Demo
+!
+vlan 99
+ name SanFran_MPLS_Uplink
+!
+vlan 153
+ name Pod-3-WAN-Uplinks
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+interface GigabitEthernet0/1
+ description MidA-Pod3-SH01 Pri
+ switchport access vlan 153
+!
+interface GigabitEthernet0/2
+ description MidA-Pod3-SC01 Port 1
+ switchport access vlan 99
+!
+interface GigabitEthernet0/3
+!
+interface GigabitEthernet0/4
+!
+interface GigabitEthernet0/5
+ description MidA-Pod3-SC02
+ switchport access vlan 153
+!
+interface GigabitEthernet0/6
+ description MidA-Pod3-SC03
+ switchport access vlan 153
+!
+interface GigabitEthernet0/7
+!
+interface GigabitEthernet0/8
+!
+interface GigabitEthernet0/9
+!
+interface GigabitEthernet0/10
+!
+interface GigabitEthernet0/11
+!
+interface GigabitEthernet0/12
+!
+interface GigabitEthernet0/13
+!
+interface GigabitEthernet0/14
+!
+interface GigabitEthernet0/15
+!
+interface GigabitEthernet0/16
+!
+interface GigabitEthernet0/17
+!
+interface GigabitEthernet0/18
+!
+interface GigabitEthernet0/19
+!
+interface GigabitEthernet0/20
+ description AR11 SPAN
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet0/21
+ description MidA-Pod3-SC02 Port2
+ switchport access vlan 153
+!
+interface GigabitEthernet0/22
+ description MidA-Pod3-SC02 Port3
+ switchport access vlan 153
+!
+interface GigabitEthernet0/23
+ description MidA-Pod3-SC02 Port4
+ switchport access vlan 153
+!
+interface GigabitEthernet0/24
+ description MidA-Pod3-SC03 Port2
+ switchport access vlan 153
+!
+interface GigabitEthernet0/25
+ description MidA-Pod3-SC03 Port3
+ switchport access vlan 153
+!
+interface GigabitEthernet0/26
+ description MidA-Pod3-SC03 Port4
+ switchport access vlan 153
+!
+interface GigabitEthernet0/27
+ description MidA-Pod3-SC01 Port 2
+ switchport access vlan 153
+!
+interface GigabitEthernet0/28
+ description MidA-Pod3-SC01 Port 3
+ switchport access vlan 153
+!
+interface GigabitEthernet0/29
+ description MidA-Pod3-SC01 Port 4
+ switchport access vlan 153
+ shutdown
+!
+interface GigabitEthernet0/30
+ description MidA-Pod3-SC01 Port 5
+ switchport access vlan 153
+!
+interface GigabitEthernet0/31
+ description MidA-Pod3-SH01 AUX
+!
+interface GigabitEthernet0/32
+!
+interface GigabitEthernet0/33
+ description MidA-Pod3-SH01 LAN0_0
+ switchport access vlan 10
+!
+interface GigabitEthernet0/34
+ description MidA-Pod3-SH01 WAN0_0
+ switchport access vlan 153
+!
+interface GigabitEthernet0/35
+ description MidA-Pod3-SH01 LAN0_1
+ switchport access vlan 10
+!
+interface GigabitEthernet0/36
+ description MidA-Pod3-SH01 WAN0_1
+ switchport access vlan 99
+!
+interface GigabitEthernet0/37
+!
+interface GigabitEthernet0/38
+!
+interface GigabitEthernet0/39
+!
+interface GigabitEthernet0/40
+!
+interface GigabitEthernet0/41
+ description MidA-Pod3-PVE01 Port 1
+ switchport trunk native vlan 10
+ switchport mode trunk
+!
+interface GigabitEthernet0/42
+ description MidA-Pod3-PVE01 Port 2
+ switchport access vlan 153
+!
+interface GigabitEthernet0/43
+ description MidA-Pod3-PVE01 Port 3
+!
+interface GigabitEthernet0/44
+ description MidA-Pod3-PVE01 Port 4
+!
+interface GigabitEthernet0/45
+!
+interface GigabitEthernet0/46
+!
+interface GigabitEthernet0/47
+!
+interface GigabitEthernet0/48
+ description MidA-Mgt-Switch01
+ switchport access vlan 153
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan153
+ description Upstream-Switch
+ ip address 10.1.153.10 255.255.255.0
+!
+ip default-gateway 10.1.153.1
+ip http server
+ip http secure-server
+logging esm config
+snmp-server community R3st0nVA RO
+!
+line con 0
+ password riverbed
+ login
+line vty 0 4
+ login local
+line vty 5 15
+ login
+!
+!
+monitor session 1 source vlan 1 - 4094
+monitor session 1 destination interface Gi0/20 encapsulation replicate
+ntp server 10.1.150.1 version 2
+end
+

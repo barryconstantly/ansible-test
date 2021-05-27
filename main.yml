@@ -53,6 +53,9 @@
   - name: Remove some lines from the config file (header and footer)
     when: "'NetIMGroup' in group_names"
     script: "/usr/bin/python3 config_strip.py"
+    
+  - name: Display the scrubbed output of the config file
+    when: "'NetIMGroup' in group_names"
     debug:
       msg: "The scrubbed output of the config file is {{lookup('file', './config_scrubbed.txt') }}"
 
@@ -86,4 +89,4 @@
   - name: Output running config to screen
     when: "'Cisco' in group_names"
     debug:
-      msg: "The contents of the config file are {{ lookup('file','backup/Mid-backup.txt') }} "
+      msg: "The contents of the rolled-back config file are {{ lookup('file','backup/Mid-backup.txt') }} "

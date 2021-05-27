@@ -75,12 +75,15 @@
       get_diffs: 'True'
       diff_file: 'diff.txt'
       
-  - name: IOS configuration source example
+  - name: Read Cisco IOS running-config
+    when: "'Cisco' in group_names"
     ios_config:
       backup: yes
       backup_options:
         filename: Mid-backup.txt
     register: backup_contents
     
-  - debug:
+  - name: Output running config to screen
+    when: "'Cisco' in group_names"
+    debug:
       msg: "The contents of the config file are {{ lookup('file','backup/Mid-backup.txt') }} "

@@ -1,0 +1,18 @@
+---
+- name: Cisco Show Example
+
+  hosts: 10.1.153.10
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+# This is elevated enable mode, note that the other script with 'show run' works which also uses
+# elevated mode..
+    - name: Run multiple show commands on remote nodes
+      ios_command:
+        commands:
+          - show version
+          - show ip int brief
+      register: print_output
+
+    - debug: var=print_output.stdout_lines

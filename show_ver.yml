@@ -1,7 +1,7 @@
 ---
 - name: Cisco Show Example
 
-  hosts: 192.0.5.1
+  hosts: AlphaBits_A
   gather_facts: false
   connection: network_cli
 
